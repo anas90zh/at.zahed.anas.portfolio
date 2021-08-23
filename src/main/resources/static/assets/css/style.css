@@ -1218,10 +1218,8 @@ section {
   left: 50%;
   margin-left: -20px;
   width: 40px;
-  height: 60px; /*change with size of arrow to make sit on bottom */
-/*   background-image: url(); */
-/*   background-size: contain; */
-}
+  height: 60px;
+  }
 
 
 
