@@ -15,9 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
 	@Autowired
 	private DataSource dataSource;
-
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource).withDefaultSchema().withUser("anas90zh").password(this.passwordEncoder().encode("Dama$96311"))
@@ -28,8 +28,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/messagecenter").hasRole("ADMIN").antMatchers("/", "/resources/**")
-				.permitAll().and().formLogin();
+		http.authorizeRequests()
+		.antMatchers("/messagecenter")//
+		.hasRole("ADMIN")//
+		.antMatchers("/", "/resources/**")//
+		.permitAll().and().formLogin();
 
 	}
 
